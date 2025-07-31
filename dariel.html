@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Feliz Cumpleaños Mi Niggan</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: radial-gradient(ellipse at center, #1b2735 0%, #090a0f 100%);
+      overflow: hidden;
+      color: white;
+    }
+
+    .container {
+      text-align: center;
+      padding-top: 10vh;
+      z-index: 2;
+      position: relative;
+    }
+
+    h1 {
+      font-size: 4rem;
+      color: #00ffff;
+      text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1.5rem;
+      color: #ffffffcc;
+    }
+
+    .cake {
+      margin: 50px auto;
+      width: 220px;
+      position: relative;
+    }
+
+    .layer {
+      width: 100%;
+      height: 50px;
+      background: #8B0000;
+      border-radius: 15px;
+      margin-top: 10px;
+      box-shadow: 0 5px 15px #000;
+    }
+
+    .candles {
+      position: absolute;
+      top: -30px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 15px;
+    }
+
+    .candle {
+      width: 12px;
+      height: 35px;
+      background: #fff;
+      border-radius: 2px;
+      position: relative;
+    }
+
+    .flame {
+      width: 12px;
+      height: 12px;
+      background: orange;
+      border-radius: 50%;
+      position: absolute;
+      top: -12px;
+      animation: flame 0.4s infinite alternate;
+    }
+
+    @keyframes flame {
+      from { transform: scale(1); opacity: 0.8; }
+      to { transform: scale(1.3); opacity: 1; }
+    }
+
+    .confetti {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .confetti-piece {
+      width: 10px;
+      height: 10px;
+      background: gold;
+      position: absolute;
+      animation: fall linear infinite;
+      border-radius: 2px;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    .btn {
+      margin-top: 30px;
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      background-color: #00ffff;
+      color: #000;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+      box-shadow: 0 0 10px #00ffff;
+    }
+
+    .btn:hover {
+      transform: scale(1.1);
+      background: #0ff;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Feliz Cumpleaños<br>mi niggan 🎉🔥</h1>
+    <p>Bro, que Dios te bendiga siempre. ¡Eres el mejor!</p>
+
+    <div class="cake">
+      <div class="candles">
+        <div class="candle"><div class="flame"></div></div>
+        <div class="candle"><div class="flame"></div></div>
+        <div class="candle"><div class="flame"></div></div>
+      </div>
+      <div class="layer" style="background: #8B0000;"></div>
+      <div class="layer" style="background: #A52A2A;"></div>
+      <div class="layer" style="background: #DC143C;"></div>
+    </div>
+
+    <button class="btn" onclick="alert('¡Gracias bro, te quiero!')">¡Gracias bro!</button>
+  </div>
+
+  <div class="confetti" id="confetti"></div>
+
+  <script>
+    const confettiContainer = document.getElementById('confetti');
+    for (let i = 0; i < 150; i++) {
+      const piece = document.createElement('div');
+      piece.classList.add('confetti-piece');
+      piece.style.left = Math.random() * 100 + 'vw';
+      piece.style.top = Math.random() * -100 + 'px';
+      piece.style.background = ['#FFD700', '#FF69B4', '#00FFFF', '#ADFF2F'][Math.floor(Math.random() * 4)];
+      piece.style.animationDuration = (Math.random() * 3 + 2) + 's';
+      piece.style.animationDelay = Math.random() + 's';
+      confettiContainer.appendChild(piece);
+    }
+  </script>
+</body>
+</html>
